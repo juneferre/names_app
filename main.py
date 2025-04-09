@@ -82,8 +82,6 @@ with tab3:
     top_female = top_names[top_names['sex'] == 'F'].nlargest(10, 'count')
 
     f_year_fig= plt.figure(figsize=(15, 8))
-
-    plt.figure(figsize=(10,5))
     sns.barplot(data=top_female, x='count', y='name')
     plt.title(f"Top 10 Female Names in {year_of_interest}")
     plt.xlabel('Count')
@@ -97,7 +95,7 @@ with tab3:
     m_year_fig = plt.figure(figsize=(10,5))
     top_male = top_names[top_names['sex'] == 'M'].nlargest(10, 'count')
 
-    plt.figure(figsize=(10,5))
+    
     sns.barplot(data=top_male, x='count', y='name')
     plt.title(f"Top 10 Male Names in {year_of_interest}")
     plt.xlabel('Count')
