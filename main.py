@@ -42,7 +42,7 @@ with tab2:
     st.write('Name')
 
     # pick a name
-    noi = st.text_input('Enter a name')
+    noi = st.text_input("Enter a Name (it's case sensitive)")
     plot_female = st.checkbox('Plot female line')
     plot_male = st.checkbox('Plot male line')
     name_df = df[df['name']==noi]
