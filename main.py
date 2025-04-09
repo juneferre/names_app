@@ -70,37 +70,27 @@ with tab2:
 with tab3:
     st.write('Year')
 
-    year_of_interest = 1990 #int(st.text_input('Enter a year'))
-    #year_of_interest = int(year_of_interest)
-
-    #st.write(year_of_interest)
-
+    year_of_interest = st.number_input('Enter a year', min_value=1880, max_value=2025, step=1, value=1990)
     top_names = df[df['year'] == year_of_interest]
 
-   # st.write(top_names.shape)
+    # st.write(top_names.shape)
 
+    # ---- FEMALE NAMES ----
     top_female = top_names[top_names['sex'] == 'F'].nlargest(10, 'count')
-
-    f_year_fig= plt.figure(figsize=(15, 8))
+    f_year_fig = plt.figure(figsize=(15, 8))
     sns.barplot(data=top_female, x='count', y='name')
     plt.title(f"Top 10 Female Names in {year_of_interest}")
     plt.xlabel('Count')
     plt.ylabel('Name')
     plt.tight_layout()
-
-
     st.pyplot(f_year_fig)
 
-
-    m_year_fig = plt.figure(figsize=(10,5))
+    # ---- MALE NAMES ----
     top_male = top_names[top_names['sex'] == 'M'].nlargest(10, 'count')
-
-    
+    m_year_fig = plt.figure(figsize=(15, 8))
     sns.barplot(data=top_male, x='count', y='name')
     plt.title(f"Top 10 Male Names in {year_of_interest}")
     plt.xlabel('Count')
     plt.ylabel('Name')
     plt.tight_layout()
-
-
     st.pyplot(m_year_fig)
